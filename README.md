@@ -101,10 +101,16 @@ colcon build
 ## Running via Docker
 Can set environment variables beforehand, hardcoded in docker/docker-compose.yaml, or as shown below. 
 
+ROBOT_IP=<ROBOT_IP> CONN_TYPE=<webrtc/cyclonedds> docker compose up --build
+
 Run:
 ```shell
 cd docker
-ROBOT_IP=<ROBOT_IP> CONN_TYPE=<webrtc/cyclonedds> docker-compose up --build
+sudo apt install docker-compose-plugin
+ROBOT_IP=10.42.0.155 CONN_TYPE=webrtc docker compose up --build
+xhost +local:root
+docker exec -it 4b33e093310b /bin/bash
+
 ```
 
 ## Usage
